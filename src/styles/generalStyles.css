@@ -1,0 +1,44 @@
+.contenedor {
+    padding: 2%;
+    text-align: center;
+}
+
+.menu-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    width: 80%;
+    height: 100%;
+    border: 3px black solid;
+}
+
+.item-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 16%;
+    height: 160px;
+    border: 1px white solid;
+    margin: 2%;
+    border-radius: 2%;
+    background-color: rgb(31, 31, 31);
+    color: white;
+    cursor: pointer;
+}
+
+.item-menu img {
+    width: 100px;
+    /* Ancho del icono */
+    height: 100px;
+    /* Alto del icono */
+    margin-bottom: 10px;
+    /* Margen inferior del icono */
+    filter: invert(100%);
+}
+
+.boton-retroceder {
+    width: 98%;
+    margin: 1%;
+}

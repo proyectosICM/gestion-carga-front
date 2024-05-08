@@ -41,7 +41,7 @@ export function PanelCarriles() {
           ? data &&
             data.map((d, index) => (
               <div style={{ width: "50%", height: "280px", border: "2px solid black" }}>
-                <Graphics key={index} id={index} gdata={semanaData} type="individual" gdataLabel="graph-container-item" />
+                <Graphics key={index} id={d.id} gdata={semanaData} type="individual" gdataLabel="graph-container-item" />
               </div>
             ))
           : data &&

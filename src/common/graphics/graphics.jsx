@@ -32,24 +32,22 @@ export function Graphics({ gdata, type, id }) {
     data = gdata.map((data) => data.cantidad);
     containerClassName = "graph-container";
   } else if (type === "individual") {
-    // Tipo "individual": Mostrar etiquetas como fechas y datos basados en gdata
-    const carrilId = 2;
-    const carrilData = gdata.find((item) => item.carrilId === carrilId);
+    const carrilData = gdata.find((item) => item.carrilId === id);
 
-    // Imprimir el valor de carrilData
-    // console.log("Carril Data:", carrilData);
+    if (!carrilData) {
+        return <div>No se encontraron datos para el carril con ID {id}.</div>;
+    }
 
-    // labels = carrilData.dias[0].cantidad;
     labels = carrilData.dias.map((dia) => `${dia.fecha[2]}/${dia.fecha[1]}/${dia.fecha[0]}`);
     data = carrilData.dias.map((dia) => dia.cantidad);
     containerClassName = "graph-container-item";
-  }
+}
 
   const dataI = {
     labels: labels,
     datasets: [
       {
-        label: `Cantidad de cargas realizadas`,
+        label: `Cantidad de cargas realizadas ${id}`,
         data: data,
         borderColor: "rgba(255, 99, 132, 1)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useListarElementos } from "../hooks/crudHooks";
 import { cargaDiariaCarrilURL } from "../api/apiurls";
 
-export function ItemMenu({ dato }) {
+export function ItemGraphics({ dato }) {
   const navigation = useNavigate();
   const [cargasConteo, setCargasConteo] = useState();
 

@@ -39,6 +39,18 @@
 }
 
 .boton-retroceder {
-    width: 98%;
+    width: 80%;
     margin: 1%;
+}
+
+.graph-container {
+    width: 40%;
+    height: 40%;
+    margin: auto;
+}
+
+.graph-container-item {
+    width: 50%;
+    height: 100%;
+    margin: auto;
 }

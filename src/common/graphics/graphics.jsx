@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 import "../../styles/generalStyles.css";
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-export function Graphics({ gdata, type, id }) {
+export function Graphics({ gdata, type, id, nombre }) {
   if (!gdata || gdata.length === 0) {
     // Si gdata es null, undefined o una lista vacía, muestra un mensaje o realiza alguna acción alternativa
     return <div>No hay datos disponibles para graficar.</div>;
@@ -19,7 +19,7 @@ export function Graphics({ gdata, type, id }) {
       },
       title: {
         display: true,
-        text: `Total de cargas`,
+        text: `Total de cargas ${nombre ? 'Carril ' + nombre : ""}`,
       },
     },
   };
@@ -28,16 +28,15 @@ export function Graphics({ gdata, type, id }) {
   let containerClassName;
   if (type === "general") {
     // Tipo "general": Mostrar etiquetas basadas en gdataLabel y datos basados en gdata
-    labels = gdata.map((data) => `Carril ${data.carrilId}`);
+    labels = gdata.map((data) => `Carril ${data.carrilNombre}`);
     data = gdata.map((data) => data.cantidad);
     containerClassName = "graph-container";
   } else if (type === "individual") {
     const carrilData = gdata.find((item) => item.carrilId === id);
 
     if (!carrilData) {
-        return <div>No se encontraron datos para el carril con ID {id}.</div>;
+        return <div>No se encontraron datos para el carril  {nombre}.</div>;
     }
-
     labels = carrilData.dias.map((dia) => `${dia.fecha[2]}/${dia.fecha[1]}/${dia.fecha[0]}`);
     data = carrilData.dias.map((dia) => dia.cantidad);
     containerClassName = "graph-container-item";
@@ -47,7 +46,7 @@ export function Graphics({ gdata, type, id }) {
     labels: labels,
     datasets: [
       {
-        label: `Cantidad de cargas realizadas ${id}`,
+        label: `Cantidad de cargas realizadas`,
         data: data,
         borderColor: "rgba(255, 99, 132, 1)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
@@ -55,9 +54,11 @@ export function Graphics({ gdata, type, id }) {
     ],
   };
 
+
+
   return (
-    <div>
+
       <Line options={options} data={dataI} className={containerClassName} />
-    </div>
+
   );
 }

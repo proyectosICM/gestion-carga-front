@@ -37,17 +37,16 @@ export function PanelCarriles() {
           {graphicsData && <Graphics gdata={graphicsData} type="general" gdataLabel={"graph-container"} />}
         </div>
 
-        {mostrarEstadisticas
-          ? data &&
-            data.map((d, index) => (
-              <div style={{ width: "50%", height: "280px", border: "2px solid black" }}>
-                <Graphics key={index} id={d.id} gdata={semanaData} type="individual" gdataLabel="graph-container-item" />
-              </div>
-            ))
-          : data &&
-            data.map((dato, index) => {
-              return <ItemMenu key={index} dato={dato} />;
-            })}
+        {mostrarEstadisticas ? (
+          <div style={{ width: "100%", height: "280px", border: "2px solid black", overflow: "auto", display: "flex", flexWrap: "wrap" }}>
+            {data && data.map((d, index) => <Graphics id={d.id} nombre={d.nombre} gdata={semanaData} type="individual" />)}
+          </div>
+        ) : (
+          data &&
+          data.map((dato, index) => {
+            return <ItemMenu key={index} dato={dato} />;
+          })
+        )}
       </div>
     </div>
   );

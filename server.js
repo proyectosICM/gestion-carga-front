@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
+const port = process.env.PORT || 3002; // Puedes usar un puerto personalizado
 
 // Servir archivos estáticos desde la carpeta 'build'
 app.use(express.static(path.join(__dirname, 'build')));
@@ -11,7 +12,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-// Iniciar el servidor en el puerto deseado (por ejemplo, 3002)
-app.listen(3002, () => {
-  console.log('Servidor en ejecución en el puerto 3002');
+// Iniciar el servidor en el puerto especificado
+app.listen(port, () => {
+  console.log(`Servidor en ejecución en el puerto ${port}`);
 });

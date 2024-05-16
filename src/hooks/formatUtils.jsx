@@ -14,7 +14,7 @@ export const formatFecha = (fechaArray) => {
 };
 
 export const formatHora = (horaArray) => {
-  const hora = horaArray[0];
+  const hora = horaArray[0].toString().padStart(2, "0");
   const minutos = horaArray[1].toString().padStart(2, "0");
   const segundos = horaArray[2].toString().padStart(2, "0");
   return `${hora}:${minutos}:${segundos}`;

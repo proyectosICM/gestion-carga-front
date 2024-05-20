@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 
 function App() {
   useEffect(() => {
-    document.title = 'Monitoreo de Camiones';
+    document.title = 'Gestion de Carga';
   }, []);
 
   return (

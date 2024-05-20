@@ -14,7 +14,7 @@ export function PanelCarriles() {
   const [semanaData, setSemanaData] = useState(null);
   const [mostrarEstadisticas, setMostrarEstadisticas] = useState(false);
   localStorage.removeItem("carrilId");
-
+  localStorage.removeItem("carrilNombre");
   useListarElementos(carrilesURL, setData);
   useListarElementos(estadisticaDia, setGraphicData);
   useListarElementos(estadisticaSemanaURL, setSemanaData);

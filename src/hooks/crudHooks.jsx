@@ -13,7 +13,7 @@ export function useListarElementos(url, setDatos) {
     return () => {
       clearInterval(intervalId);
     };
-  });
+  }, []);
 }
 
 export function useListarElementosPaginados(url, pageNumber) {

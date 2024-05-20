@@ -1,19 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
 import { useNavigate } from "react-router-dom";
 import "../styles/generalStyles.css";
-import { useListarElementosPaginados } from "../hooks/crudHooks";
-import { registroCargasxCarrilPageURL } from "../api/apiurls";
+import { useListarElementos, useListarElementosPaginados } from "../hooks/crudHooks";
+import { carrilesURL, registroCargasxCarrilPageURL } from "../api/apiurls";
 import { formatFecha, formatHora, formatTiempoCarga } from "../hooks/formatUtils";
 import { PaginacionUtils } from "../hooks/paginacionUtils";
 
 export function PanelRegistroCarga() {
   const carrilId = localStorage.getItem("carrilId");
+  const carrilNombre = localStorage.getItem("carrilNombre");
   const navigation = useNavigate();
-  //const [data, setData] = useState();
 
   //useListarElementos(`${registroCargasxCarrilURL}/${carrilId}`, setData);
+
 
   const [pageNumber, setPageNumber] = useState(0);
 
@@ -22,12 +23,14 @@ export function PanelRegistroCarga() {
     pageNumber
   );
 
+
   return (
     <div className="contenedor">
       <Button variant="primary" className="boton-retroceder" onClick={() => navigation("/")}>
         Atras
       </Button>
       <div className="menu-contenedor">
+        <h1 style={{ color: "white" }}>Carril {carrilNombre}</h1>
         <Table variant="dark" striped bordered hover style={{ margin: "2%" }}>
           <thead>
             <tr>

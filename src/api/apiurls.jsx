@@ -1,6 +1,7 @@
 // URL base común
 //export const base = "http://localhost:8087";
-export const base = "http://telemetriaperu.com:8087";
+
+export const base = "https://samloto.com:4002"
 export const baseURL = `${base}/api`;
 
 export const carrilesURL = `${baseURL}/carriles`;

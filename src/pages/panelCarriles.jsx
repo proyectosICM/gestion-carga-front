@@ -5,7 +5,7 @@ import { carrilesURL, estadisticaDia, estadisticaSemanaURL } from "../api/apiurl
 import "../styles/generalStyles.css";
 import { Button, ButtonGroup } from "react-bootstrap";
 import { Graphics } from "../common/graphics/graphics";
-import { PanelEstadisticas } from "./panelEstadisticas";
+
 
 export function PanelCarriles() {
   const [data, setData] = useState();
@@ -19,27 +19,25 @@ export function PanelCarriles() {
   useListarElementos(estadisticaDia, setGraphicData);
   useListarElementos(estadisticaSemanaURL, setSemanaData);
 
-  //console.log(semanaData)
-
   return (
     <div className="contenedor">
       <h1 style={{ color: "white" }}>Panel carriles</h1>
-      <ButtonGroup style={{ width: "80%", margin: "2%" }}>
-        <Button variant="primary" style={{ flex: 1 }} onClick={() => setMostrarEstadisticas(false)}>
+      <ButtonGroup className="btn-group">
+        <Button variant="primary" className="btn-panel"  onClick={() => setMostrarEstadisticas(false)}>
           Panel
         </Button>
-        <Button variant="primary" style={{ flex: 1, marginLeft: "0.5%" }} onClick={() => setMostrarEstadisticas(true)}>
+        <Button variant="primary" className="btn-stats"   onClick={() => setMostrarEstadisticas(true)}>
           Estadisticas
         </Button>
       </ButtonGroup>
       <div className="menu-contenedor">
-        <div style={{ width: "100%", height: "280px", border: "2px solid black" }}>
-          {graphicsData && <Graphics gdata={graphicsData} type="general" gdataLabel={"graph-container"} />}
+        <div className="graph-panel">
+          {graphicsData && <Graphics gdata={graphicsData} type="general"  />}
         </div>
 
         {mostrarEstadisticas ? (
           <div style={{ width: "100%", height: "280px", border: "2px solid black", overflow: "auto", display: "flex", flexWrap: "wrap" }}>
-            {data && data.map((d, index) => <Graphics id={d.id} nombre={d.nombre} gdata={semanaData} type="individual" />)}
+            {data && data.map((d, index) => <Graphics key={index} id={d.id} nombre={d.nombre} gdata={semanaData} type="individual" />)}
           </div>
         ) : (
           data &&
@@ -51,3 +49,4 @@ export function PanelCarriles() {
     </div>
   );
 }
+ 

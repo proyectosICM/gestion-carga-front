@@ -15,7 +15,7 @@ export function PanelRegistroCarga() {
 
   //useListarElementos(`${registroCargasxCarrilURL}/${carrilId}`, setData);
 
-
+ 
   const [pageNumber, setPageNumber] = useState(0);
 
   const { datos, totalPages, currentPage, setCurrentPage, fetchData } = useListarElementosPaginados(

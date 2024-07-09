@@ -4,11 +4,12 @@ import { useCallback, useEffect, useState } from "react";
 export function useListarElementos(url, setDatos) {
   const ListarDatos = useCallback(async () => {
     const results = await axios.get(url);
+    console.log("SI")
     setDatos(results.data);
   }, [url, setDatos]);
 
   useEffect(() => {
-    const intervalId = setInterval(ListarDatos, 1000);
+    const intervalId = setInterval(ListarDatos, 3000);
     ListarDatos();
     return () => {
       clearInterval(intervalId);

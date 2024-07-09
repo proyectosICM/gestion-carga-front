@@ -8,7 +8,7 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 export function Graphics({ gdata, type, id, nombre }) {
   if (!gdata || gdata.length === 0) {
     // Si gdata es null, undefined o una lista vacía, muestra un mensaje o realiza alguna acción alternativa
-    return <div>No hay datos disponibles para graficar.</div>;
+    return <div className="text-white">No hay datos disponibles para graficar.</div>;
   }
 
   const options = {
@@ -30,7 +30,7 @@ export function Graphics({ gdata, type, id, nombre }) {
     // Tipo "general": Mostrar etiquetas basadas en gdataLabel y datos basados en gdata
     labels = gdata.map((data) => `Carril ${data.carrilNombre}`);
     data = gdata.map((data) => data.cantidad);
-    containerClassName = "graph-container";
+    containerClassName = "graph-panel";
   } else if (type === "individual") {
     const carrilData = gdata.find((item) => item.carrilId === id);
 
@@ -39,13 +39,13 @@ export function Graphics({ gdata, type, id, nombre }) {
     }
     labels = carrilData.dias.map((dia) => `${dia.fecha[2]}/${dia.fecha[1]}/${dia.fecha[0]}`);
     data = carrilData.dias.map((dia) => dia.cantidad);
-    containerClassName = "graph-container-item";
+    containerClassName = "graph-container";
 }
 
   const dataI = {
     labels: labels,
     datasets: [
-      {
+      { 
         label: `Cantidad de cargas realizadas`,
         data: data,
         borderColor: "rgba(255, 99, 132, 1)",

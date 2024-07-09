@@ -12,6 +12,6 @@ export function PanelEstadisticas(){
     return(
         <div className='contenedor'>
             <h1>Hola</h1>
-        </div>
+        </div> 
     );
 }

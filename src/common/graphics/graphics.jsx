@@ -35,11 +35,11 @@ export function Graphics({ gdata, type, id, nombre }) {
     const carrilData = gdata.find((item) => item.carrilId === id);
 
     if (!carrilData) {
-        return <div>No se encontraron datos para el carril  {nombre}.</div>;
+        return <div className="graph-item">No se encontraron datos para el carril  {nombre}.</div>;
     }
     labels = carrilData.dias.map((dia) => `${dia.fecha[2]}/${dia.fecha[1]}/${dia.fecha[0]}`);
     data = carrilData.dias.map((dia) => dia.cantidad);
-    containerClassName = "graph-container";
+    containerClassName = "graph-item";
 }
 
   const dataI = {

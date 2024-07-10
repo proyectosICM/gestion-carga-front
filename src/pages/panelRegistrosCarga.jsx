@@ -28,14 +28,14 @@ export function PanelRegistroCarga() {
     <div className="contenedor">
       <Button variant="primary" className="boton-retroceder" onClick={() => navigation("/")}>
         Atras
-      </Button>
-      <div className="menu-contenedor">
+      </Button> 
+      <div className="table-ajust" >
         <h1 style={{ color: "white" }}>Carril {carrilNombre}</h1>
-        <Table variant="dark" striped bordered hover style={{ margin: "2%" }}>
+        <Table variant="dark"  striped bordered hover >
           <thead>
             <tr>
               <th>#</th>
-              <th>Dia</th>
+              <th className="col-dia">Dia</th>
               <th>Hora de inicio</th>
               <th>Hora de Fin</th>
               <th>Tiempo carga</th>
@@ -47,7 +47,7 @@ export function PanelRegistroCarga() {
                 return (
                   <tr key={index}>
                     <td>{dato.id}</td>
-                    <td>{formatFecha(dato.diaCarga)}</td>
+                    <td className="col-dia">{formatFecha(dato.diaCarga)}</td>
                     <td>{formatHora(dato.horaInicio)}</td>
                     <td>{formatHora(dato.horaFin)}</td>
                     <td>{formatTiempoCarga(dato.tiempoCarga)}</td>

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { ItemMenu } from "../common/itemMenu";
 import { useListarElementos } from "../hooks/crudHooks";
 import { carrilesURL, estadisticaDia, estadisticaSemanaURL } from "../api/apiurls";
-import "../styles/generalStyles.css";
 import { Button, ButtonGroup } from "react-bootstrap";
 import { Graphics } from "../common/graphics/graphics";
 
@@ -32,11 +31,11 @@ export function PanelCarriles() {
       </ButtonGroup>
       <div className="menu-contenedor">
         <div className="graph-panel">
-          {graphicsData && <Graphics gdata={graphicsData} type="general"  />}
+          {graphicsData && <Graphics gdata={graphicsData} type="general" />}
         </div>
 
         {mostrarEstadisticas ? (
-          <div style={{ width: "100%", height: "280px", border: "2px solid black", overflow: "auto", display: "flex", flexWrap: "wrap" }}>
+          <div className="graph-container">
             {data && data.map((d, index) => <Graphics key={index} id={d.id} nombre={d.nombre} gdata={semanaData} type="individual" />)}
           </div>
         ) : (

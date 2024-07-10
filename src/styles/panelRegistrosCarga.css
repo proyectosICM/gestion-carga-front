@@ -1,0 +1,13 @@
+.table-ajust {
+    width: 80%;
+    align-items: center;
+    justify-items: center;
+    margin: auto;
+  }
+  
+  @media (max-width: 600px) {
+    .col-dia {
+      display: none;
+    }
+  }
+  

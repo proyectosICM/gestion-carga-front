@@ -2,6 +2,9 @@ import './App.css';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { routes } from './routes';
 import { useEffect } from 'react';
+import "./styles/generalStyles.css";
+import "./styles/graphicsStyles.css";
+import "./styles/panelRegistrosCarga.css";
 
 function App() {
   useEffect(() => {

@@ -9,7 +9,7 @@
     flex-wrap: wrap;
     justify-content: center;
     margin: auto;
-    width: 80%;
+    width: 90%;
     height: 100%;
     border: 3px black solid;
     border-radius: 15px;
@@ -18,7 +18,7 @@
 
 /* Panel Carriles */
 .btn-group {
-    width: 82%;
+    width: 92%;
     margin: 1.5%;
 }
 
@@ -57,34 +57,7 @@
     filter: invert(100%);
 }
 
-.graph-panel {
-    width: 100%;
-    height: 280px;
-    margin: auto;
-
-}
-
-
-.graph-container {
-    width: 100%;
-    height: 280px;
-    margin: auto;
-
-}
-
-
-
-/*
- style={{ width: "100%", height: "280px", border: "2px solid black" }}
- 
-.graph-container-item {
-    width: 50%;
-    height: 100%;
-    margin: auto;
-}
-*/
-
-.text-white{
+.text-white {
     color: white;
     margin: 40px auto;
 
@@ -131,7 +104,7 @@
 @media (max-width: 576px) {
     .item-menu {
         width: 90%;
-        height: 80px;
+        height: 150px;
     }
 
     .item-menu img {

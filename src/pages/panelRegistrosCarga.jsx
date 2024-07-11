@@ -23,10 +23,11 @@ export function PanelRegistroCarga() {
     pageNumber
   );
 
+  const sedeNombre = localStorage.getItem("sedeNombre");
 
   return (
     <div className="contenedor">
-      <Button variant="primary" className="boton-retroceder" onClick={() => navigation("/")}>
+      <Button variant="primary" className="boton-retroceder" onClick={() => navigation(`/sede/${sedeNombre}`)}>
         Atras
       </Button> 
       <div className="table-ajust" >

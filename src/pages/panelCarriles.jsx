@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ItemMenu } from "../common/itemMenu";
 import { useListarElementos } from "../hooks/crudHooks";
-import { carrilesURL, estadisticaDia, estadisticaSemanaURL } from "../api/apiurls";
+import { carrilesSedeURL, carrilesURL, estadisticaDia, estadisticaSemanaURL } from "../api/apiurls";
 import { Button, ButtonGroup } from "react-bootstrap";
 import { Graphics } from "../common/graphics/graphics";
 
@@ -12,15 +12,16 @@ export function PanelCarriles() {
 
   const [semanaData, setSemanaData] = useState(null);
   const [mostrarEstadisticas, setMostrarEstadisticas] = useState(false);
+  const sedeId =  localStorage.getItem("sedeId");
+
   localStorage.removeItem("carrilId");
   localStorage.removeItem("carrilNombre");
-  useListarElementos(carrilesURL, setData);
+  useListarElementos(`${carrilesSedeURL}/${sedeId}`, setData);
   useListarElementos(estadisticaDia, setGraphicData);
   useListarElementos(estadisticaSemanaURL, setSemanaData);
 
   return (
     <div className="contenedor">
-      <h1 style={{ color: "white" }}>Panel carriles</h1>
       <ButtonGroup className="btn-group">
         <Button variant="primary" className="btn-panel"  onClick={() => setMostrarEstadisticas(false)}>
           Panel

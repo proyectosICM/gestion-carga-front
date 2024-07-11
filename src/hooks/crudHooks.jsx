@@ -1,10 +1,32 @@
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
 
+export function ListItems(url, setData) {
+  const fetchData = async () => {
+    try {
+      const token = await localStorage.getItem("token");
+      const response = await axios.get(`${url}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setData(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  fetchData();
+}
+
 export function useListarElementos(url, setDatos) {
   const ListarDatos = useCallback(async () => {
-    const results = await axios.get(url);
-    console.log("SI")
+    const token = await localStorage.getItem("token");
+    const results = await axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     setDatos(results.data);
   }, [url, setDatos]);
 
@@ -24,7 +46,12 @@ export function useListarElementosPaginados(url, pageNumber) {
 
   const fetchData = async (pageNumber) => {
     try {
-      const response = await axios.get(`${url}?page=${pageNumber}`);
+      const token = await localStorage.getItem("token");
+      const response = await axios.get(`${url}?page=${pageNumber}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       setDatos(response.data.content);
       setTotalPages(response.data.totalPages);
       setCurrentPage(response.data.number);

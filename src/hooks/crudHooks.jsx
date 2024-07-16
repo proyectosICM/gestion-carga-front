@@ -74,3 +74,37 @@ export function useListarElementosPaginados(url, pageNumber) {
 
   return { datos, totalPages, currentPage, setCurrentPage, fetchData };
 }
+
+
+export function GuardarElementos(url, requestData) {
+  const token = localStorage.getItem("token");
+  return new Promise((resolve, reject) => {
+    axios
+      .post(`${url}`, requestData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        resolve(response.data);
+      })
+      .catch((error) => {
+        console.error("Error al guardar los datos:", error);
+        reject(error);
+      });
+  });
+}
+
+export async function editarElemento(url, requestData) {
+  try {
+    const token = localStorage.getItem("token");
+    await axios.put(url, requestData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  } catch (error) {
+    // Manejo de errores, por ejemplo, mostrar un mensaje de error
+    console.error("Error al actualizar el elemento:", error);
+  }
+}

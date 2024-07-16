@@ -14,11 +14,11 @@ const NavBarG = () => {
       <Navbar.Brand style={{ marginLeft: "25px", cursor: "pointer" }} onClick={() => navigation("/")}>
         Gestion de Carga
       </Navbar.Brand>
- 
-        <Nav> 
-          <Nav.Link onClick={() => navigation("/")}>Sedes</Nav.Link>
-          <Nav.Link onClick={() => navigation("/")}>Administracion</Nav.Link>
-        </Nav>
+
+      <Nav>
+        <Nav.Link onClick={() => navigation("/")}>Sedes</Nav.Link>
+        {/* <Nav.Link onClick={() => navigation("/administracion")}>Administracion</Nav.Link> */}
+      </Nav>
 
       <Button onClick={() => handleLogout()} style={{ marginRight: "25px" }} variant="outline-light">
         Cerrar Sesión

@@ -16,7 +16,7 @@ export function ItemMenu({ dato }) {
   };
 
   useListarElementos(`${cargaDiariaCarrilURL}/${dato.id}`, setCargasConteo);
-  //console.log(cargasConteo  cargasConteo.cantidad)
+
   return (
     <div className="item-menu" onClick={() => handleDetails(dato)}>
       <h3>Carril {dato.nombre}</h3>

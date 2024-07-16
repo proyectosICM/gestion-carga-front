@@ -1,16 +1,14 @@
-import axios from "axios";
 import { Button } from "react-bootstrap";
-import { useState } from "react";
 
 export function PaginacionUtils({ setPageNumber, setCurrentPage, currentPage, totalPages }) {
   const goToPreviousPage = () => {
     setPageNumber((prevPage) => (prevPage > 0 ? prevPage - 1 : prevPage));
-    setCurrentPage((prevPage) => (prevPage > 0 ? prevPage - 1 : prevPage)); // Actualizar currentPage
+    setCurrentPage((prevPage) => (prevPage > 0 ? prevPage - 1 : prevPage)); 
   };
 
   const goToNextPage = () => {
     setPageNumber((prevPage) => (prevPage < totalPages - 1 ? prevPage + 1 : prevPage));
-    setCurrentPage((prevPage) => (prevPage < totalPages - 1 ? prevPage + 1 : prevPage)); // Actualizar currentPage
+    setCurrentPage((prevPage) => (prevPage < totalPages - 1 ? prevPage + 1 : prevPage)); 
   };
 
   return (

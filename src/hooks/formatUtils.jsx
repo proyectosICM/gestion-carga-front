@@ -1,6 +1,6 @@
 export const formatTiempoCarga = (tiempoCarga) => {
   if (!tiempoCarga || !Array.isArray(tiempoCarga)) {
-    return ""; // Retorna una cadena vacía si no se proporciona un valor válido
+    return ""; 
   }
 
   const hours = tiempoCarga[0] || 0;
@@ -15,7 +15,7 @@ export const formatFecha = (fechaArray) => {
 
 export const formatHora = (horaArray) => {
   if (!Array.isArray(horaArray) || horaArray.length < 2) {
-    return ""; // Retorna una cadena vacía si el formato no es el esperado
+    return ""; 
   }
 
   const hora = (horaArray[0] || 0).toString().padStart(2, "0");

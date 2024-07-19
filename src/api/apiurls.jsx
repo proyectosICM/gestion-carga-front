@@ -1,5 +1,5 @@
-//export const base = "https://samloto.com:4002";
-export const base = "http://localhost:7087"
+export const base = "https://samloto.com:4002";
+//export const base = "http://localhost:7087"
 
 export const baseURL = `${base}/api`;
 
@@ -15,7 +15,7 @@ export const sedesEmpresasURL = `${sedesURL}/xempresa`;
 
 // Carriles
 export const carrilesURL = `${baseURL}/carriles`;
-export const carrilesSedeURL = `${carrilesURL}/sede`;
+export const carrilesEmpresasURL = `${carrilesURL}/empresa`;
 
 export const registroCargasURL = `${baseURL}/registro-cargas`;
 

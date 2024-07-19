@@ -5,7 +5,7 @@ import { MdAddCircle, MdFactory, MdOutlineNumbers } from "react-icons/md";
 import { SlOptions } from "react-icons/sl";
 import { useNavigate } from "react-router-dom";
 import { editarElemento, GuardarElementos, ListItems } from "../../hooks/crudHooks";
-import { carrilesSedeURL, carrilesURL, sedesEmpresasURL } from "../../api/apiurls";
+import { carrilesEmpresasURL, carrilesURL, sedesEmpresasURL } from "../../api/apiurls";
 import { CarrilesAdModal } from "./carrilesAdModal";
 
 export function CarrilesAdTabla() {
@@ -17,7 +17,7 @@ export function CarrilesAdTabla() {
   const [datosaEditar, setDatosAEditar] = useState();
 
   useEffect(() => {
-    ListItems(`${carrilesSedeURL}/${sedeIdSelected}`, setCarrilesData);
+    ListItems(`${carrilesEmpresasURL}/${sedeIdSelected}`, setCarrilesData);
   }, []);
 
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ItemMenu } from "../common/itemMenu";
 import { useListarElementos } from "../hooks/crudHooks";
-import { carrilesSedeURL, carrilesURL, estadisticaDia, estadisticaSemanaURL } from "../api/apiurls";
+import { carrilesEmpresasURL, carrilesURL, estadisticaDia, estadisticaSemanaURL } from "../api/apiurls";
 import { Button, ButtonGroup } from "react-bootstrap";
 import { Graphics } from "../common/graphics/graphics";
 
@@ -12,11 +12,11 @@ export function PanelCarriles() {
 
   const [semanaData, setSemanaData] = useState(null);
   const [mostrarEstadisticas, setMostrarEstadisticas] = useState(false);
-  const sedeId =  localStorage.getItem("sedeId");
+  const sedeId =  localStorage.getItem("empresaId");
 
   localStorage.removeItem("carrilId");
   localStorage.removeItem("carrilNombre");
-  useListarElementos(`${carrilesSedeURL}/${sedeId}`, setData);
+  useListarElementos(`${carrilesEmpresasURL}/${sedeId}`, setData);
   useListarElementos(estadisticaDia, setGraphicData);
   useListarElementos(estadisticaSemanaURL, setSemanaData);
 

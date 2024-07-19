@@ -12,7 +12,7 @@ import { PanelSedes } from "./pages/panelSedes";
 export const routes = [
     { path: "/login", component: <Login /> },
     { path: "/", component: <PanelSedes /> },
-    { path: "/sede/:nombre", component: <PanelCarriles /> },
+    { path: "/sede", component: <PanelCarriles /> },
 
     { path: "/registro-carga", component: <PanelRegistroCarga /> },
     { path: "/redirect", component: <Redirect /> },

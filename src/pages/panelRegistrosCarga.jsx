@@ -27,7 +27,7 @@ export function PanelRegistroCarga() {
 
   return (
     <div className="contenedor">
-      <Button variant="primary" className="boton-retroceder" onClick={() => navigation(`/sede/${sedeNombre}`)}>
+      <Button variant="primary" className="boton-retroceder" onClick={() => navigation(`/`)}>
         Atras
       </Button> 
       <div className="table-ajust" >
